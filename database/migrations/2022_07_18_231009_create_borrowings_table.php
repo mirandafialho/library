@@ -15,9 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Book::class);
             $table->foreignIdFor(User::class);
-            $table->dateTime('date_borrowed');
-            $table->dateTime('date_return')->nullable();
+            $table->string('code');
+            $table->dateTime('borrowed_at');
+            $table->dateTime('due_at');
+            $table->dateTime('brought_at')->nullable();
             $table->decimal('fine')->default(0.00);
+            $table->integer('renewals')->default(0);
             $table->timestamps();
         });
     }
