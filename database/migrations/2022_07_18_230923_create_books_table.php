@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignIdFor(Author::class);
             $table->foreignIdFor(Category::class);
             $table->string('name');
-            $table->text('cover');
+            $table->text('cover_url');
             $table->string('isbn', 20);
             $table->integer('print_length');
             $table->year('publication_year');
