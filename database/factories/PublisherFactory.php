@@ -17,6 +17,6 @@ class PublisherFactory extends Factory
 
     private function getCountryId(): int
     {
-        return Country::all()->random()->pluck('id');
+        return Country::all()->random()->first()->id;
     }
 }
