@@ -13,12 +13,13 @@ class AuthorFactory extends Factory
         return [
             'country_id' => $this->getCountryId(),
             'name'       => $this->faker->name,
-            'birth'      => $this->faker->dateTimeThisCentury
+            'biography'  => $this->faker->paragraph,
+            'birth'      => $this->faker->dateTimeThisCentury,
         ];
     }
 
     private function getCountryId(): int
     {
-        return Country::all()->random()->pluck('id');
+        return Country::all()->random()->first()->id;
     }
 }

@@ -10,7 +10,9 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'              => $this->faker->name(),
+            'tax_id'            => $this->faker->ssn,
+            'name'              => $this->faker->name,
+            'phone'             => $this->faker->phoneNumber,
             'email'             => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password'          => bcrypt('password'),
