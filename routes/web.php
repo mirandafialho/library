@@ -1,20 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthorsController;
+use App\Http\Controllers\Authors;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Books;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,7 +23,10 @@ Route::middleware('auth')->group(function () {
     Route::put('/books/{book}', Books\UpdateController::class)->name('books.update');
     Route::delete('/books/{book}', Books\DeleteController::class)->name('books.delete');
     
-    Route::get('/authors', [AuthorsController::class, 'index'])->name('authors.index');
+    Route::get('/authors', Authors\IndexController::class)->name('authors.index');
+    Route::get('/authors/{author}', Authors\ReadController::class)->name('authors.read');
+    Route::put('/authors/{author}', Authors\UpdateController::class)->name('authors.update');
+    Route::delete('/authors/{author}', Authors\DeleteController::class)->name('authors.delete');
 });
 
 require __DIR__.'/auth.php';

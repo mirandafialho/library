@@ -33,24 +33,24 @@
                                         {{ $author->country->name }}
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4">
-                                        {{ $author->created_at->format('d/m/Y H:i') }}
+                                        {{ $author->created_at->format('m/d/Y H:i') }}
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4">
-                                        {{ $author->updated_at->format('d/m/Y H:i') ?? '-' }}
+                                        {{ $book->updated_at->format('m/d/Y H:i') ?? '-' }}
                                     </td>
                                     <td class="whitespace-nowrap px-4 py-4">
                                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex" data-tooltip-target="tooltip-default">
-                                            <a href="{{ route('authors.read', $author) }}">
+                                            <a href="{{ route('authors.read', $book) }}">
                                                 {{ __('Ver') }}
                                             </a>
                                         </button>
                                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex" data-tooltip-target="tooltip-default">
-                                            <a href="{{ route('authors.update', $author) }}">
+                                            <a href="{{ route('authors.update', $book) }}">
                                                 {{ __('Editar') }}
                                             </a>
                                         </button>
                                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex" data-tooltip-target="tooltip-default">
-                                            <a href="{{ route('authors.delete', $author) }}">
+                                            <a href="{{ route('authors.delete', $book) }}">
                                                 {{ __('Excluir') }}
                                             </a>
                                         </button>
