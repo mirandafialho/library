@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Autores') }}
+            {{ __('Books') }}
         </h2>
     </x-slot>
 
@@ -13,45 +13,49 @@
                         <thead class="border-b font-medium dark:border-neutral-500">
                             <tr>
                                 <th scope="col" class="px-6 py-4">#</th>
-                                <th scope="col" class="px-6 py-4">{{ __('Nome') }}</th>
-                                <th scope="col" class="px-6 py-4">{{ __('País') }}</th>
-                                <th scope="col" class="px-6 py-4">{{ __('Criado em') }}</th>
-                                <th scope="col" class="px-6 py-4">{{ __('Atualizado em') }}</th>
-                                <th scope="col" class="px-6 py-4">{{ __('Ações') }}</th>
+                                <th scope="col" class="px-6 py-4">{{ __('Name') }}</th>
+                                <th scope="col" class="px-6 py-4">{{ __('Author') }}</th>
+                                <th scope="col" class="px-6 py-4">{{ __('Publisher') }}</th>
+                                <th scope="col" class="px-6 py-4">{{ __('Created at') }}</th>
+                                <th scope="col" class="px-6 py-4">{{ __('Updated at') }}</th>
+                                <th scope="col" class="px-6 py-4">{{ __('Actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($authors as $author)
+                            @foreach ($books as $book)
                                 <tr class="border-b dark:border-neutral-500">
                                     <td class="whitespace-nowrap px-6 py-4">
-                                        {{ $author->id }}
+                                        {{ $book->id }}
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4">
-                                        {{ $author->name }}
+                                        {{ $book->name }}
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4">
-                                        {{ $author->country->name }}
+                                        {{ $book->publisher->name }}
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4">
-                                        {{ $author->created_at->format('d/m/Y H:i') }}
+                                        {{ $book->publisher->name }}
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4">
-                                        {{ $author->updated_at->format('d/m/Y H:i') ?? '-' }}
+                                        {{ $book->created_at->format('m/d/Y H:i') }}
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 py-4">
+                                        {{ $book->updated_at->format('m/d/Y H:i') ?? '-' }}
                                     </td>
                                     <td class="whitespace-nowrap px-4 py-4">
                                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex" data-tooltip-target="tooltip-default">
-                                            <a href="{{ route('authors.read', $author) }}">
-                                                {{ __('Ver') }}
+                                            <a href="{{ route('books.read', $book) }}">
+                                                {{ __('View') }}
                                             </a>
                                         </button>
                                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex" data-tooltip-target="tooltip-default">
-                                            <a href="{{ route('authors.update', $author) }}">
-                                                {{ __('Editar') }}
+                                            <a href="{{ route('books.update', $book) }}">
+                                                {{ __('Edit') }}
                                             </a>
                                         </button>
                                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex" data-tooltip-target="tooltip-default">
-                                            <a href="{{ route('authors.delete', $author) }}">
-                                                {{ __('Excluir') }}
+                                            <a href="{{ route('books.delete', $book) }}">
+                                                {{ __('Remove') }}
                                             </a>
                                         </button>
                                     </td>
